@@ -1,0 +1,32 @@
+{
+  "name": "epic-planner-server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "DEBUG=project-management-server:* nodemon ./bin/www",
+    "dev-windows": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^6.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "googleapis": "^47.0.0",
+    "mongoose": "^5.8.9",
+    "morgan": "^1.9.0",
+    "node-localstorage": "^2.1.5",
+    "node-sass-middleware": "^0.11.0",
+    "serve-favicon": "^2.5.0",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
