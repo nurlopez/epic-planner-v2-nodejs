@@ -110,22 +110,15 @@ Epic planner is a urban micro-planner that allows you to create a legendary rout
 
 
 
-## Backlog
+## Tasks
 
-[See the Trello board.](https://trello.com/b/pawm0XYn)
-
-
+[See the Trello board.](https://trello.com/b/R3ox3u8A/epic-planner-v20)
 
 ## Links
 
 ### Git
 
-[Repository Link](https://github.com/Johanson1988/epic-planner/)
+[Repository Link for EpicPlanner v1](https://github.com/Johanson1988/epic-planner/)
+[Repository Link for EpicPlanner v2](https://github.com/nurlopez/epic-planner-v2/)
 
 [Deploy Link]()
-
-
-
-### Slides
-
-[Slides Link]()
