@@ -35,7 +35,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.PUBLIC_DOMAIN, 'https://epic-planner.herokuapp.com'],
+    origin: [process.env.PUBLIC_DOMAIN, 'https://epic-planner.herokuapp.com','127.0.0.1'],
   })
 );
 
@@ -44,13 +44,13 @@ app.use(
   session({
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
-      ttl: 24 * 60 * 60 // 1 day
+      ttl: 14 * 24 * 60 * 60 // 14 days
     }),
     secret: process.env.SECRET_SESSION,
     resave: true,
     saveUninitialized: true,
     cookie: {
-      maxAge: 24 * 60 * 60 * 1000
+      maxAge: 24 * 60 * 60 * 100
     }
   })
 );
