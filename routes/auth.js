@@ -7,8 +7,6 @@ const saltRounds    = 10;
 
 
 
-
-
 //  POST    '/signup'
 router.post(
     '/signup',
@@ -36,3 +34,5 @@ router.post(
       }
     },
   );
+
+  module.exports = router;
