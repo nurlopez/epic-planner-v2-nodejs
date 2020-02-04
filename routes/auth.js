@@ -5,14 +5,21 @@ const User          = require('../models/User');
 const bcrypt        = require('bcrypt');
 const saltRounds    = 10;
 
+// HELPER FUNCTIONS
+const {
+    isLoggedIn,
+    isNotLoggedIn,
+    validationLoggin,
+  } = require('../helpers/middlewares');
+  
 
-
-//  POST    '/signup'
+//  POST    '/auth'
 router.post(
     '/signup',
     isNotLoggedIn,
     validationLoggin,
     async (req, res, next) => {
+        console.log(req.body, 'req.body?');
       const { fullName, email, password, location, keywords } = req.body;
   
       try {
