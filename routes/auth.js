@@ -33,7 +33,7 @@ router.post(
           const newUser = await User.create({ fullName, email, password: hashPass, location, keywords });
           req.session.currentUser = newUser;
           res
-            .status(200) //  OK
+            .status(201) //  OK
             .json(newUser);
         }
       } catch (error) {
@@ -52,9 +52,13 @@ router.post(
   async (req,res,next) => {
     const {email, password} = req.body;
     try {
-      const emailExists = await User.findOne({email});
-      if (!emailExists) return next (createError(404));
-      console.log(emailExists);
+      const user = await User.findOne({email});
+      console.log('hola dola lalalal')
+      if (!user) return next (createError(404));
+      else if(!bcrypt.compareSync(password, user.password)) return next (createError(404));
+      req.session.currentUser = user;
+      res
+        .status(202).send(); //  OK    
     }
     catch (error) {
       next(error);
