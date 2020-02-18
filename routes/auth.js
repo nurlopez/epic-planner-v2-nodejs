@@ -4,6 +4,7 @@ const User          = require('../models/User');
 
 const bcrypt        = require('bcrypt');
 const saltRounds    = 10;
+const createError = require('http-errors');
 
 // HELPER FUNCTIONS
 const {
@@ -13,13 +14,12 @@ const {
   } = require('../helpers/middlewares');
   
 
-//  POST    '/auth'
+// //  POST    '/auth'
 router.post(
     '/signup',
-    // isNotLoggedIn,
-    // validationLoggin,
+    isNotLoggedIn,
+    validationLoggin,
     async (req, res, next) => {
-        console.log(req.body, 'req.body?');
       const { fullName, email, password, location, keywords } = req.body;
   
       try {
@@ -41,5 +41,25 @@ router.post(
       }
     },
   );
+
+
+// POST '/auth'  
+
+router.post(
+  '/signin',
+  isNotLoggedIn,
+  validationLoggin,
+  async (req,res,next) => {
+    const {email, password} = req.body;
+    try {
+      const emailExists = await User.findOne({email});
+      if (!emailExists) return next (createError(404));
+      console.log(emailExists);
+    }
+    catch (error) {
+      next(error);
+    }
+  }
+)
 
   module.exports = router;
