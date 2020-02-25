@@ -2,6 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const Dayplan = require('../models/Dayplan');
 
+const createError = require('http-errors');
+
 // HELPER FUNCTIONS
 const {
     isLoggedIn,
@@ -11,19 +13,14 @@ const {
 
 // Create day plan
 router.post('/', async(req,res,next) => {
-  console.log(req.body);
   try {
     const newDayPlan = await Dayplan.create(req.body);
-
-    //mirar aquí como hacer buen error handling
-    
-    res.status(200).send();
+    res.status(201).json(newDayPlan);
   }
   catch (error) {
-    next (error);
+    next (createError(400));
   }
 
 });
-
 
 module.exports = router;
