@@ -12,7 +12,7 @@ const {
   } = require('../helpers/middlewares');
 
 // Create day plan
-router.post('/', async(req,res,next) => {
+router.post('/', isLoggedIn, async(req,res,next) => {
   try {
     const newDayPlan = await Dayplan.create(req.body);
     res.status(201).json(newDayPlan);
