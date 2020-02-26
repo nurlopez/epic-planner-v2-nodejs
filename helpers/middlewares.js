@@ -12,6 +12,12 @@ exports.isNotLoggedIn = (req, res, next) => {
   else next(createError(403));
 };
 
+//exports.validateDayplan = (req, res, next) => {
+  //const {}
+  //if (!req.session.currentUser) next();
+  //else next(createError(403));
+//};
+
 exports.validationLoggin = (req, res, next) => {
   const { email, password } = req.body;
 

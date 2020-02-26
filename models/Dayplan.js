@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 const dayPlanSchema = new Schema({
     
-    date:     { type: Date, required: true},
-    name:    { type: String, required: true},
-    startingTime: { type: String},
-    endingTime: { type: String},
-    //events:{ type : [] }
+    //quité la fecha porque ya está incluida en startingTime
+    //esto puede abrir las puertas a planes de varios días???
+    name:    {type: String, required: true},
+    startingTime: { type: Date, required: true},
+    endingTime: { type: Date, required: true},
     events:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Event'}]
 
     
@@ -19,4 +19,5 @@ const dayPlanSchema = new Schema({
 });
 
 const DayPlan = mongoose.model("DayPlan", dayPlanSchema);
+
 module.exports = DayPlan;
