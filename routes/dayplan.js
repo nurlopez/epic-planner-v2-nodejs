@@ -11,7 +11,7 @@ const {
     validationLoggin,
   } = require('../helpers/middlewares');
 
-// Create day plan
+// Create day plan  /dayplan
 router.post('/', isLoggedIn, async(req,res,next) => {
   try {
     const newDayPlan = await Dayplan.create(req.body);
@@ -22,5 +22,19 @@ router.post('/', isLoggedIn, async(req,res,next) => {
   }
 
 });
+
+// Edit day plan 
+router.put('/', isLoggedIn,  async (req, res, next) => {
+  
+  try {
+    const dayPlanId = req.body._id
+    const updatedDayPlan = await Dayplan.findByIdAndUpdate(dayPlanId, req.body, {new: true} )
+    res.status(200).json(updatedDayPlan)
+  }
+  catch (error) {
+    next (createError(400));
+  }
+})
+
 
 module.exports = router;
