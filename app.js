@@ -35,7 +35,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.PUBLIC_DOMAIN,'127.0.0.1','*'],
+    origin: ['127.0.0.1', 'http://192.168.1.134:2224','http://localhost:3000'],
   })
 );
 
