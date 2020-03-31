@@ -35,7 +35,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.PUBLIC_DOMAIN, 'https://epic-planner.herokuapp.com','127.0.0.1'],
+    origin: [process.env.PUBLIC_DOMAIN,'127.0.0.1','*'],
   })
 );
 
