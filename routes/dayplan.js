@@ -28,8 +28,21 @@ router.put('/', isLoggedIn,  async (req, res, next) => {
   
   try {
     const dayPlanId = req.body._id
-    const updatedDayPlan = await Dayplan.findByIdAndUpdate(dayPlanId, req.body, {new: true} )
+    const updatedDayPlan = await Dayplan.updateOne({_id:dayPlanId}, req.body)
     res.status(200).json(updatedDayPlan)
+  }
+  catch (error) {
+    next (createError(400));
+  }
+})
+
+// get day plan 
+router.get('/', isLoggedIn,  async (req, res, next) => {
+  
+  try {
+    const dayPlanId = req.body._id
+    const foundDayPlan = await Dayplan.findOne({_id:dayPlanId} )
+    res.status(200).json(foundDayPlan)
   }
   catch (error) {
     next (createError(400));
