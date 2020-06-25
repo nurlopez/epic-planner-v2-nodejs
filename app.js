@@ -13,7 +13,7 @@ const MongoStore   = require('connect-mongo')(session);
 const cors         = require('cors');
 const router       = require('./routes/index');
 
-require("dotenv").config();
+  require("dotenv").config();
 
 
 // MONGOOSE CONNECTION
