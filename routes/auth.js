@@ -55,7 +55,7 @@ router.post(
       const user = await User.findOne({email});
       console.log('hola dola lalalal')
       if (!user) return next (createError(404));
-      else if(!bcrypt.compareSync(password, user.password)) return next (createError(404));
+      else if(!bc45rypt.compareSync(password, user.password)) return next (createError(404));
       req.session.currentUser = user;
       res
         .status(202).send(); //  OK    

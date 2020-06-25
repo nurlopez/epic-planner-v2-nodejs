@@ -8,8 +8,8 @@ const dayPlanSchema = new Schema({
     name:    {type: String, required: true},
     startingTime: { type: Date, required: true},
     endingTime: { type: Date, required: true},
-    events:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Event'}]
-
+    events:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Event'}],
+    imageSrc: {type: String},
     
 },{
     timestamps: {
@@ -21,3 +21,4 @@ const dayPlanSchema = new Schema({
 const DayPlan = mongoose.model("DayPlan", dayPlanSchema);
 
 module.exports = DayPlan;
+
